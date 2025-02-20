@@ -21,12 +21,12 @@ Django **signals** allow different parts of an application to communicate withou
 
 ---
 
-## **🟢 Question 1: Are Django Signals Executed Synchronously or Asynchronously?**  
+## **Question 1: Are Django Signals Executed Synchronously or Asynchronously?**  
 
-### **✅ Answer:**  
+### **Answer:**  
 Django signals are executed **synchronously by default**, meaning they run **immediately** within the same execution flow as the sender.  
 
-### **🔹 Explanation:**  
+### **Explanation:**  
 - When a signal is triggered, it is processed in the same execution context as the function that triggered it.  
 - This means that the main process must wait for the signal handler to complete before continuing execution.  
 - A delay in the signal handler will also delay the main function.  
@@ -35,12 +35,12 @@ Django signals are executed **synchronously by default**, meaning they run **imm
 
 ---
 
-## **🟢 Question 2: Do Django Signals Run in the Same Thread as the Caller?**  
+## **Question 2: Do Django Signals Run in the Same Thread as the Caller?**  
 
-### **✅ Answer:**  
+### **Answer:**  
 Yes, Django signals run in the **same thread** as the caller **by default**.  
 
-### **🔹 Explanation:**  
+### **Explanation:**  
 - Since signals are synchronous, they execute in the same thread as the function that triggered them.  
 - If we check the current thread inside the signal handler, it will match the main thread unless we manually use threading or async features.  
 
@@ -48,36 +48,28 @@ Yes, Django signals run in the **same thread** as the caller **by default**.
 
 ---
 
-## **🟢 Question 3: Do Django Signals Run in the Same Database Transaction as the Caller?**  
+## **Question 3: Do Django Signals Run in the Same Database Transaction as the Caller?**  
 
-### **✅ Answer:**  
+### **Answer:**  
 Yes, Django signals **run within the same database transaction** as the caller **by default**.  
 
-### **🔹 Explanation:**  
+### **Explanation:**  
 - If a signal is triggered inside a database transaction and an error occurs, the entire transaction, including changes made by the signal, will be rolled back.  
 - This ensures that data remains consistent and prevents partial updates in case of failures.  
 
-🔹 **Conclusion:** Django signals run **inside the same database transaction** as the caller, unless explicitly handled differently.
+🔹 **Conclusion:** Django signals run inside the same database transaction as the caller, unless explicitly handled differently.
 
 ---
 
 # **Assignment 2: Custom Classes in Python**  
 
 The `Rectangle` class meets the following requirements:  
-✅ Requires `length` and `width` to be initialized  
-✅ Supports iteration  
-✅ Outputs `{'length': VALUE}` and `{'width': VALUE}` when iterated  
+Requires `length` and `width` to be initialized  
+Supports iteration  
+Outputs `{'length': VALUE}` and `{'width': VALUE}` when iterated  
 
 ### **🔹 Explanation:**  
 - The class is designed to hold a rectangle's dimensions (`length` and `width`).  
 - It is **iterable**, meaning we can loop over its instance and get values in a structured format.  
 - The iteration order ensures that the `length` is retrieved first, followed by the `width`.  
 
----
-
-# **How to Set Up and Run the Code**  
-
-### **1️⃣ Clone the Repository**
-```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/django-trainee-assignment.git
-cd django-trainee-assignment
